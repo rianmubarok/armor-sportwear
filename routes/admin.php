@@ -23,4 +23,7 @@ Route::prefix('admin')
         Route::get('/dashboard', [DashboardController::class, 'index'])
             ->name('dashboard');
 
+        // Manajemen Produk
+        Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
+
     });

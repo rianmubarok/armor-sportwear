@@ -12,29 +12,29 @@
                 
                 <ul class="space-y-4 mb-10">
                     <li class="flex items-center gap-3 text-slate-300">
-                        <div class="w-6 h-6 rounded-full bg-neon-green/20 flex items-center justify-center text-neon-green shrink-0">✓</div>
+                        <div class="w-6 h-6  bg-neon-green/20 flex items-center justify-center text-neon-green shrink-0">✓</div>
                         Bebas pilih warna tim
                     </li>
                     <li class="flex items-center gap-3 text-slate-300">
-                        <div class="w-6 h-6 rounded-full bg-neon-green/20 flex items-center justify-center text-neon-green shrink-0">✓</div>
+                        <div class="w-6 h-6  bg-neon-green/20 flex items-center justify-center text-neon-green shrink-0">✓</div>
                         Custom logo di dada & lengan
                     </li>
                     <li class="flex items-center gap-3 text-slate-300">
-                        <div class="w-6 h-6 rounded-full bg-neon-green/20 flex items-center justify-center text-neon-green shrink-0">✓</div>
+                        <div class="w-6 h-6  bg-neon-green/20 flex items-center justify-center text-neon-green shrink-0">✓</div>
                         Pilihan font nama & nomor punggung
                     </li>
                 </ul>
 
-                <a href="{{ url('/preview-custom') }}" class="inline-block border-2 border-neon-green text-neon-green px-8 py-3 rounded-full text-base font-bold hover:bg-neon-green hover:text-black transition-all shadow-[0_0_15px_rgba(57,255,20,0.2)]">
+                <a href="{{ url('/preview-custom') }}" class="inline-block border-2 border-neon-green text-neon-green px-8 py-3  text-base font-bold hover:bg-neon-green hover:text-black transition-all -[0_0_15px_rgba(57,255,20,0.2)]">
                     Mulai Custom Sekarang
                 </a>
             </div>
 
             <!-- Image/Preview Visual -->
             <div class="lg:w-1/2 w-full relative">
-                <div class="absolute inset-0 bg-neon-green/10 blur-[100px] rounded-full"></div>
-                <div class="bg-slate-800 border border-slate-700 rounded-3xl p-4 relative z-10 shadow-2xl">
-                    <div class="aspect-square bg-slate-900 rounded-2xl flex items-center justify-center overflow-hidden relative group">
+                <div class="absolute inset-0 bg-neon-green/10 ] "></div>
+                <div class="bg-slate-800 border border-slate-700  p-4 relative z-10 ">
+                    <div class="aspect-square bg-slate-900  flex items-center justify-center overflow-hidden relative group">
                         <!-- Mockup placeholder -->
                         <div class="absolute inset-0 opacity-50 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
                         <p class="text-slate-500 font-bold text-xl z-10 group-hover:scale-110 transition-transform duration-500">3D Interactive Viewer Placeholder</p>

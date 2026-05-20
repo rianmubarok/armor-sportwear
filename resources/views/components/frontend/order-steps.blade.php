@@ -11,8 +11,8 @@
 
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
                 <!-- Step 1 -->
-                <div class="bg-slate-800 md:bg-slate-900 rounded-2xl p-6 md:p-0 text-center border border-slate-700 md:border-none shadow-xl md:shadow-none relative">
-                    <div class="w-16 h-16 mx-auto bg-slate-800 border-4 border-slate-900 rounded-full flex items-center justify-center text-xl font-bold text-neon-green shadow-neon mb-6 relative z-10">
+                <div class="bg-slate-800 md:bg-slate-900  p-6 md:p-0 text-center border border-slate-700 md:border-none  md: relative">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 border-4 border-slate-900  flex items-center justify-center text-xl font-bold text-neon-green  mb-6 relative z-10">
                         1
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">Pilih Desain</h3>
@@ -20,8 +20,8 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div class="bg-slate-800 md:bg-slate-900 rounded-2xl p-6 md:p-0 text-center border border-slate-700 md:border-none shadow-xl md:shadow-none relative">
-                    <div class="w-16 h-16 mx-auto bg-slate-800 border-4 border-slate-900 rounded-full flex items-center justify-center text-xl font-bold text-neon-green shadow-neon mb-6 relative z-10">
+                <div class="bg-slate-800 md:bg-slate-900  p-6 md:p-0 text-center border border-slate-700 md:border-none  md: relative">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 border-4 border-slate-900  flex items-center justify-center text-xl font-bold text-neon-green  mb-6 relative z-10">
                         2
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">Konsultasi WA</h3>
@@ -29,8 +29,8 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div class="bg-slate-800 md:bg-slate-900 rounded-2xl p-6 md:p-0 text-center border border-slate-700 md:border-none shadow-xl md:shadow-none relative">
-                    <div class="w-16 h-16 mx-auto bg-slate-800 border-4 border-slate-900 rounded-full flex items-center justify-center text-xl font-bold text-neon-green shadow-neon mb-6 relative z-10">
+                <div class="bg-slate-800 md:bg-slate-900  p-6 md:p-0 text-center border border-slate-700 md:border-none  md: relative">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 border-4 border-slate-900  flex items-center justify-center text-xl font-bold text-neon-green  mb-6 relative z-10">
                         3
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">DP & Produksi</h3>
@@ -38,8 +38,8 @@
                 </div>
 
                 <!-- Step 4 -->
-                <div class="bg-slate-800 md:bg-slate-900 rounded-2xl p-6 md:p-0 text-center border border-slate-700 md:border-none shadow-xl md:shadow-none relative">
-                    <div class="w-16 h-16 mx-auto bg-neon-green border-4 border-slate-900 rounded-full flex items-center justify-center text-xl font-bold text-black shadow-neon mb-6 relative z-10">
+                <div class="bg-slate-800 md:bg-slate-900  p-6 md:p-0 text-center border border-slate-700 md:border-none  md: relative">
+                    <div class="w-16 h-16 mx-auto bg-neon-green border-4 border-slate-900  flex items-center justify-center text-xl font-bold text-black  mb-6 relative z-10">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2">Pelunasan & Kirim</h3>

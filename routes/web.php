@@ -9,9 +9,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ProductController;
 
 // Landing page publik (tidak perlu login)
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Katalog Produk
+Route::get('/katalog', [ProductController::class, 'index'])->name('katalog');
+Route::get('/katalog/{product:slug}', [ProductController::class, 'show'])->name('katalog.show');
 
 /*
 |--------------------------------------------------------------------------

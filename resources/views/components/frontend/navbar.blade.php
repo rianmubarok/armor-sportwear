@@ -1,4 +1,4 @@
-<nav class="fixed w-full z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800 transition-all duration-300" id="navbar">
+<nav class="fixed w-full z-50 bg-slate-900 border-b border-slate-800 transition-all duration-300" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-20">
             <!-- Logo -->
@@ -13,7 +13,7 @@
                 <a href="{{ url('/') }}" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Home</a>
                 <a href="{{ url('/katalog') }}" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Katalog</a>
                 <a href="{{ url('/preview-custom') }}" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Custom Jersey</a>
-                <a href="{{ url('/request-order') }}" class="bg-neon-green text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-[#32e612] transition-colors shadow-neon">
+                <a href="{{ url('/request-order') }}" class="bg-neon-green text-black px-5 py-2 text-sm font-bold hover:bg-[#32e612] transition-colors">
                     Request Order
                 </a>
             </div>

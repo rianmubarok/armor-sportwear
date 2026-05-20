@@ -28,7 +28,6 @@
         .text-neon-green { color: #39ff14; }
         .bg-neon-green { background-color: #39ff14; }
         .border-neon-green { border-color: #39ff14; }
-        .shadow-neon { box-shadow: 0 0 15px rgba(57, 255, 20, 0.4); }
     </style>
 </head>
 <body class="antialiased selection:bg-neon-green selection:text-black">

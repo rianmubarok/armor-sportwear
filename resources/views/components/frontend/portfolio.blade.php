@@ -13,25 +13,25 @@
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <!-- Portfolio Item 1 -->
-            <div class="aspect-square bg-slate-800 rounded-xl overflow-hidden group relative">
+            <div class="aspect-square bg-slate-800  overflow-hidden group relative">
                 <div class="absolute inset-0 bg-slate-700 flex items-center justify-center text-slate-500">Real Pict 1</div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             
             <!-- Portfolio Item 2 -->
-            <div class="aspect-square bg-slate-800 rounded-xl overflow-hidden group relative">
+            <div class="aspect-square bg-slate-800  overflow-hidden group relative">
                 <div class="absolute inset-0 bg-slate-700 flex items-center justify-center text-slate-500">Real Pict 2</div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
 
             <!-- Portfolio Item 3 -->
-            <div class="aspect-square bg-slate-800 rounded-xl overflow-hidden group relative">
+            <div class="aspect-square bg-slate-800  overflow-hidden group relative">
                 <div class="absolute inset-0 bg-slate-700 flex items-center justify-center text-slate-500">Real Pict 3</div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
 
             <!-- Portfolio Item 4 -->
-            <div class="aspect-square bg-slate-800 rounded-xl overflow-hidden group relative">
+            <div class="aspect-square bg-slate-800  overflow-hidden group relative">
                 <div class="absolute inset-0 bg-slate-700 flex items-center justify-center text-slate-500">Real Pict 4</div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
