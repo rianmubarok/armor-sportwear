@@ -28,7 +28,18 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Hanya admin yang boleh masuk, redirect ke dashboard admin
+        if ($request->user()->isAdmin()) {
+            return redirect()->intended(route('admin.dashboard'));
+        }
+
+        // Jika bukan admin, logout dan kembalikan ke home dengan pesan error
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('home')
+            ->withErrors(['email' => 'Anda tidak memiliki akses admin.']);
     }
 
     /**

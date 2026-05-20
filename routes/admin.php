@@ -1,0 +1,26 @@
+<?php
+
+use App\Http\Controllers\Admin\DashboardController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+| Routes di sini dilindungi oleh dua middleware:
+|   1. 'auth'  → user harus sudah login
+|   2. 'admin' → user harus memiliki is_admin = true
+|
+| Semua route menggunakan prefix '/admin' dan name prefix 'admin.'
+*/
+
+Route::prefix('admin')
+    ->name('admin.')
+    ->middleware(['auth', 'admin'])
+    ->group(function () {
+
+        // Dashboard utama admin
+        Route::get('/dashboard', [DashboardController::class, 'index'])
+            ->name('dashboard');
+
+    });

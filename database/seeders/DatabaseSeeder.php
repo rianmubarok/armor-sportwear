@@ -18,9 +18,10 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Admin Armor Sportwear',
-            'email' => 'admin@armor.com',
-            'password' => bcrypt('admin123'), // Set default password
+            'name'     => 'Admin Armor Sportwear',
+            'email'    => 'admin@armor.com',
+            'password' => bcrypt('admin123'),
+            'is_admin' => true,
         ]);
     }
 }
