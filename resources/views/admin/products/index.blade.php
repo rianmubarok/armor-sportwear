@@ -1,67 +1,79 @@
 @extends('layouts.admin')
 
 @section('page-title', 'Manajemen Produk')
-@section('page-subtitle', 'Kelola semua katalog jersey dan sportwear Anda di sini.')
+@section('page-subtitle', 'Kelola semua katalog jersey dan sportwear')
 
 @section('content')
 
 @if(session('success'))
-<div class="mb-6 p-4 bg-green-50 border-l-4 border-green-500 text-green-700 rounded shadow-sm">
+<div class="mb-6 p-4 border-l-4 border-[#1A1A1A] bg-white text-[#1A1A1A] font-['Rajdhani'] font-semibold flex items-center gap-3">
+    <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
     {{ session('success') }}
 </div>
 @endif
 
-<div class="bg-white rounded-xl shadow-sm border border-gray-200">
-    <div class="p-6 border-b border-gray-200 flex justify-between items-center">
-        <h2 class="text-lg font-semibold text-gray-800">Daftar Produk</h2>
-        <a href="{{ route('admin.products.create') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition flex items-center gap-2">
+<div class="bg-white border border-[#D0D0CC]">
+    {{-- Table Header --}}
+    <div class="p-6 border-b border-[#D0D0CC] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+            <h2 class="text-2xl font-bold text-[#1A1A1A] font-['Teko'] uppercase leading-none">Daftar Produk</h2>
+            <p class="text-xs text-[#9A9A9A] font-['Rajdhani'] font-semibold uppercase tracking-wider mt-0.5">{{ $products->total() }} produk terdaftar</p>
+        </div>
+        <a href="{{ route('admin.products.create') }}" class="admin-btn">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             Tambah Produk
         </a>
     </div>
 
+    {{-- Table --}}
     <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
             <thead>
-                <tr class="bg-gray-50 border-b border-gray-200 text-gray-500 text-xs uppercase tracking-wider">
-                    <th class="px-6 py-4 font-medium">Gambar</th>
-                    <th class="px-6 py-4 font-medium">Nama Produk</th>
-                    <th class="px-6 py-4 font-medium">Kategori</th>
-                    <th class="px-6 py-4 font-medium">Harga Mulai</th>
-                    <th class="px-6 py-4 font-medium text-right">Aksi</th>
+                <tr class="bg-[#F8F8F6] border-b border-[#D0D0CC]">
+                    <th class="px-6 py-4 text-[10px] font-bold text-[#9A9A9A] uppercase tracking-widest font-['Rajdhani']">Gambar</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-[#9A9A9A] uppercase tracking-widest font-['Rajdhani']">Nama Produk</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-[#9A9A9A] uppercase tracking-widest font-['Rajdhani']">Kategori</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-[#9A9A9A] uppercase tracking-widest font-['Rajdhani']">Harga Mulai</th>
+                    <th class="px-6 py-4 text-[10px] font-bold text-[#9A9A9A] uppercase tracking-widest font-['Rajdhani'] text-right">Aksi</th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-gray-200">
+            <tbody class="divide-y divide-[#F2F2F0]">
                 @forelse($products as $product)
-                <tr class="hover:bg-gray-50 transition">
+                <tr class="hover:bg-[#F8F8F6] transition group">
                     <td class="px-6 py-4">
-                        <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}" class="w-12 h-12 rounded object-cover border border-gray-200">
+                        <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}"
+                             class="w-14 h-14 object-cover border border-[#D0D0CC]">
                     </td>
                     <td class="px-6 py-4">
-                        <p class="font-medium text-gray-900">{{ $product->name }}</p>
-                        <p class="text-xs text-gray-500">{{ $product->slug }}</p>
+                        <p class="font-bold text-[#1A1A1A] font-['Teko'] text-lg uppercase leading-tight">{{ $product->name }}</p>
+                        <p class="text-xs text-[#9A9A9A] font-['Rajdhani']">{{ $product->slug }}</p>
                     </td>
                     <td class="px-6 py-4">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                        <span class="inline-flex items-center px-2.5 py-0.5 text-xs font-bold uppercase tracking-widest bg-[#F2F2F0] text-[#1A1A1A] font-['Rajdhani']">
                             {{ $product->category }}
                         </span>
                     </td>
-                    <td class="px-6 py-4 text-sm text-gray-900">
-                        Rp {{ number_format($product->price_start_from, 0, ',', '.') }}
+                    <td class="px-6 py-4">
+                        <span class="text-lg font-bold text-[#1A1A1A] font-['Teko']">Rp {{ number_format($product->price_start_from, 0, ',', '.') }}</span>
                     </td>
-                    <td class="px-6 py-4 text-right space-x-2">
-                        <a href="{{ route('admin.products.edit', $product) }}" class="text-indigo-600 hover:text-indigo-900 text-sm font-medium">Edit</a>
-                        <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="inline-block" onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk ini?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:text-red-900 text-sm font-medium">Hapus</button>
-                        </form>
+                    <td class="px-6 py-4 text-right">
+                        <div class="flex items-center justify-end gap-2">
+                            <a href="{{ route('admin.products.edit', $product) }}" class="admin-btn-outline text-sm py-1.5 px-3">Edit</a>
+                            <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="inline-block"
+                                  onsubmit="return confirm('Hapus produk {{ $product->name }}?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="admin-btn-danger text-sm py-1.5 px-3">Hapus</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="5" class="px-6 py-8 text-center text-gray-500">
-                        Belum ada data produk.
+                    <td colspan="5" class="px-6 py-16 text-center">
+                        <p class="text-4xl font-bold text-[#D0D0CC] font-['Teko'] uppercase mb-2">Belum Ada Produk</p>
+                        <p class="text-[#9A9A9A] font-['Rajdhani'] font-medium mb-4">Mulai dengan menambahkan produk pertama Anda.</p>
+                        <a href="{{ route('admin.products.create') }}" class="admin-btn inline-flex">Tambah Produk</a>
                     </td>
                 </tr>
                 @endforelse
@@ -69,7 +81,8 @@
         </table>
     </div>
 
-    <div class="p-6 border-t border-gray-200">
+    {{-- Pagination --}}
+    <div class="p-6 border-t border-[#D0D0CC]">
         {{ $products->links() }}
     </div>
 </div>
