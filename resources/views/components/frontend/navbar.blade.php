@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center h-20">
             <!-- Logo -->
             <div class="flex-shrink-0 flex items-center">
-                <a href="#" class="text-2xl font-extrabold tracking-tight text-white font-['Outfit']">
+                <a href="#" class="text-3xl font-extrabold tracking-wide text-white font-['Teko'] uppercase">
                     ARMOR<span class="text-neon-green">.</span>
                 </a>
             </div>
