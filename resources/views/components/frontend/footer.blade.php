@@ -3,7 +3,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-12">
 
             <!-- Brand -->
-            <div class="md:col-span-1">
+            <div class="md:col-span-2">
                 <a href="#" class="text-3xl font-extrabold tracking-wide text-[#1A1A1A] font-['Teko'] uppercase block mb-4 leading-none">
                     ARMOR<span class="text-[#6B6B6B]">.</span>
                 </a>
@@ -31,20 +31,7 @@
                 <h3 class="text-xs font-bold text-[#1A1A1A] tracking-widest uppercase mb-5 font-['Rajdhani']">Navigasi</h3>
                 <ul class="space-y-3 text-sm font-['Rajdhani'] font-medium">
                     <li><a href="{{ url('/katalog') }}" class="text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors">Katalog Desain</a></li>
-                    <li><a href="{{ url('/preview-custom') }}" class="text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors">Preview Custom</a></li>
-                    <li><a href="{{ url('/request-order') }}" class="text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors">Pesan Sekarang</a></li>
-                    <li><a href="{{ url('/tentang-kami') }}" class="text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors">Tentang Kami</a></li>
-                </ul>
-            </div>
-
-            <!-- Support -->
-            <div class="md:col-span-1">
-                <h3 class="text-xs font-bold text-[#1A1A1A] tracking-widest uppercase mb-5 font-['Rajdhani']">Support</h3>
-                <ul class="space-y-3 text-sm font-['Rajdhani'] font-medium">
-                    <li><a href="#" class="text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors">FAQ</a></li>
-                    <li><a href="#" class="text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors">Syarat & Ketentuan</a></li>
-                    <li><a href="#" class="text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors">Kebijakan Privasi</a></li>
-                    <li><a href="#" class="text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors">Lacak Pesanan</a></li>
+                    <li><a href="{{ route('preview-jersey') }}" class="text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors">Preview Custom</a></li>
                 </ul>
             </div>
 

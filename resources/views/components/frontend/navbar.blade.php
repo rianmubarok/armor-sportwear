@@ -12,8 +12,8 @@
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="{{ url('/katalog') }}" class="text-[#1A1A1A] hover:text-[#6B6B6B] transition-colors text-sm font-semibold uppercase tracking-wider font-['Rajdhani']">Katalog</a>
                 <a href="{{ route('preview-jersey') }}" class="text-[#1A1A1A] hover:text-[#6B6B6B] transition-colors text-sm font-semibold uppercase tracking-wider font-['Rajdhani']">Custom Jersey</a>
-                <a href="{{ url('/request-order') }}" class="bg-[#1A1A1A] text-white px-6 py-2.5 text-sm font-bold hover:bg-[#333] transition-colors uppercase tracking-wider font-['Teko']">
-                    Pesan Sekarang
+                <a href="{{ url('/#kontak') }}" class="bg-[#1A1A1A] text-white px-6 py-2.5 text-sm font-bold hover:bg-[#333] transition-colors uppercase tracking-wider font-['Teko']">
+                    Konsultasi
                 </a>
             </div>
 
@@ -32,7 +32,7 @@
             <a href="{{ url('/') }}" class="block text-[#1A1A1A] font-semibold uppercase tracking-wider py-2">Beranda</a>
             <a href="{{ url('/katalog') }}" class="block text-[#1A1A1A] font-semibold uppercase tracking-wider py-2">Katalog</a>
             <a href="{{ route('preview-jersey') }}" class="block text-[#1A1A1A] font-semibold uppercase tracking-wider py-2">Custom Jersey</a>
-            <a href="{{ url('/request-order') }}" class="block bg-[#1A1A1A] text-white text-center py-3 font-bold uppercase tracking-wider mt-2">Pesan Sekarang</a>
+            <a href="{{ url('/#kontak') }}" class="block bg-[#1A1A1A] text-white text-center py-3 font-bold uppercase tracking-wider mt-2">Konsultasi</a>
         </div>
     </div>
 </nav>
