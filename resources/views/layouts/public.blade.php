@@ -43,5 +43,6 @@
     <!-- Footer -->
     <x-frontend.footer />
 
+    @stack('scripts')
 </body>
 </html>

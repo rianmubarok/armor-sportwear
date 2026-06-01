@@ -9,8 +9,8 @@
             <!-- Product Card 1 -->
             <div class="group bg-slate-800  border border-slate-700 overflow-hidden hover:border-neon-green/50 transition-all duration-300">
                 <div class="aspect-[4/5] bg-slate-700 relative overflow-hidden">
-                    <!-- Placeholder Image -->
-                    <div class="absolute inset-0 flex items-center justify-center text-slate-500 font-bold">Image Jersey 1</div>
+                    <!-- Unsplash Image 1 -->
+                    <img src="https://images.unsplash.com/photo-1628891435222-06592ce29663?q=80&w=600&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Esports Jersey">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <a href="{{ url('/request-order') }}" class="bg-white text-black px-6 py-2  font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                             Custom Desain Ini
@@ -29,7 +29,7 @@
             <!-- Product Card 2 -->
             <div class="group bg-slate-800  border border-slate-700 overflow-hidden hover:border-neon-green/50 transition-all duration-300">
                 <div class="aspect-[4/5] bg-slate-700 relative overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center text-slate-500 font-bold">Image Jersey 2</div>
+                    <img src="https://images.unsplash.com/photo-1518605368461-1e122221dc31?q=80&w=600&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Football Jersey">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <a href="{{ url('/request-order') }}" class="bg-white text-black px-6 py-2  font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                             Custom Desain Ini
@@ -48,7 +48,7 @@
             <!-- Product Card 3 -->
             <div class="group bg-slate-800  border border-slate-700 overflow-hidden hover:border-neon-green/50 transition-all duration-300">
                 <div class="aspect-[4/5] bg-slate-700 relative overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center text-slate-500 font-bold">Image Jersey 3</div>
+                    <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?q=80&w=600&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Basketball Jersey">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <a href="{{ url('/request-order') }}" class="bg-white text-black px-6 py-2  font-bold transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                             Custom Desain Ini

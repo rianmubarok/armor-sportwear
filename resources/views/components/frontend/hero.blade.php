@@ -31,9 +31,9 @@
         <!-- Dashboard/Hero Image Mockup -->
         <div class="mt-20 relative mx-auto w-full max-w-5xl">
             <div class="aspect-video bg-slate-800 border border-slate-700 overflow-hidden relative flex items-center justify-center group">
-                <!-- Placeholder for Hero Image -->
-                <div class="absolute inset-0 bg-slate-900"></div>
-                <p class="z-10 text-slate-500 font-['Outfit'] font-bold text-2xl tracking-widest uppercase">Hero Image / 3D Jersey Preview</p>
+                <!-- Unsplash Hero Image -->
+                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1600&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Jersey Showcase">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
             </div>
         </div>
     </div>

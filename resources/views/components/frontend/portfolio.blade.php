@@ -14,25 +14,25 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             <!-- Portfolio Item 1 -->
             <div class="aspect-square bg-slate-800  overflow-hidden group relative">
-                <div class="absolute inset-0 bg-slate-700 flex items-center justify-center text-slate-500">Real Pict 1</div>
+                <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?q=80&w=400&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Portfolio 1">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             
             <!-- Portfolio Item 2 -->
             <div class="aspect-square bg-slate-800  overflow-hidden group relative">
-                <div class="absolute inset-0 bg-slate-700 flex items-center justify-center text-slate-500">Real Pict 2</div>
+                <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=400&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Portfolio 2">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
 
             <!-- Portfolio Item 3 -->
             <div class="aspect-square bg-slate-800  overflow-hidden group relative">
-                <div class="absolute inset-0 bg-slate-700 flex items-center justify-center text-slate-500">Real Pict 3</div>
+                <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=400&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Portfolio 3">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
 
             <!-- Portfolio Item 4 -->
             <div class="aspect-square bg-slate-800  overflow-hidden group relative">
-                <div class="absolute inset-0 bg-slate-700 flex items-center justify-center text-slate-500">Real Pict 4</div>
+                <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=400&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Portfolio 4">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
         </div>
