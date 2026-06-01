@@ -8,11 +8,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="text-center max-w-4xl mx-auto">
             <span class="inline-block py-1 px-3 bg-slate-800 border border-slate-700 text-[#39ff14] text-xs font-semibold tracking-wider uppercase mb-6">
-                #1 Custom Jersey Vendor
+                #1 Vendor Jersey Custom
             </span>
             <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-tight">
-                Dominate The Game With <br>
-                <span class="text-[#39ff14]">Premium Armor</span>
+                Dominasi Permainan Dengan <br>
+                <span class="text-[#39ff14]">Armor Premium</span>
             </h1>
             <p class="mt-4 text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
                 Berdiri sejak 2022, Armor Sportwear siap mewujudkan jersey impian tim Anda dengan material terbaik, desain eksklusif, dan kualitas jahitan standar profesional.
@@ -23,7 +23,7 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </a>
                 <a href="{{ url('/request-order') }}" class="bg-slate-800 text-white border border-slate-700 px-8 py-4 text-base font-bold hover:bg-slate-700 transition-colors flex items-center justify-center">
-                    Request Order
+                    Pesan Sekarang
                 </a>
             </div>
         </div>

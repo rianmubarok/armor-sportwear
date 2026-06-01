@@ -10,11 +10,11 @@
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8 items-center">
-                <a href="{{ url('/') }}" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Home</a>
+                <a href="{{ url('/') }}" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Beranda</a>
                 <a href="{{ url('/katalog') }}" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Katalog</a>
                 <a href="{{ route('preview-jersey') }}" class="text-slate-300 hover:text-white transition-colors text-sm font-medium">Custom Jersey</a>
                 <a href="{{ url('/request-order') }}" class="bg-neon-green text-black px-5 py-2 text-sm font-bold hover:bg-[#32e612] transition-colors">
-                    Request Order
+                    Pesan Sekarang
                 </a>
             </div>
 

@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Our <span class="text-neon-green">Works</span></h2>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Karya <span class="text-neon-green">Kami</span></h2>
                 <p class="text-slate-400 max-w-xl text-lg">Hasil produksi nyata yang telah kami selesaikan untuk berbagai tim olahraga di seluruh Indonesia.</p>
             </div>
             <a href="https://instagram.com" target="_blank" class="inline-flex items-center gap-2 text-white hover:text-neon-green font-semibold transition-colors">

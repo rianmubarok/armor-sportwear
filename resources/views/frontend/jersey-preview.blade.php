@@ -5,7 +5,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10">
             <h1 class="text-3xl font-extrabold text-white sm:text-4xl">
-                Interactive Jersey Preview
+                Preview Jersey Interaktif
             </h1>
             <p class="mt-4 text-xl text-slate-400">
                 Visualisasikan desain custom jersey tim Anda sebelum melakukan pemesanan.
@@ -79,7 +79,7 @@
                                         </svg>
                                         <div class="flex text-sm text-slate-400 justify-center">
                                             <label for="logo_upload" class="relative cursor-pointer rounded-md font-medium text-neon-green hover:text-[#32e612] focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-neon-green">
-                                                <span>Upload a file</span>
+                                                <span>Unggah file</span>
                                                 <input id="logo_upload" name="logo_upload" type="file" class="sr-only" accept="image/png, image/jpeg, image/jpg">
                                             </label>
                                         </div>

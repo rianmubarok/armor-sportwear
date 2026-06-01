@@ -1,7 +1,7 @@
 <section id="katalog" class="py-24 bg-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Featured <span class="text-neon-green">Collection</span></h2>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-4">Koleksi <span class="text-neon-green">Unggulan</span></h2>
             <p class="text-slate-400 max-w-2xl mx-auto text-lg">Inspirasi desain jersey terbaik untuk tim kesayangan Anda. Semua desain dapat di-custom sesuai kebutuhan.</p>
         </div>
 
