@@ -3,13 +3,13 @@
         <div class="max-w-5xl">
             <!-- Badge -->
             <span class="inline-flex items-center gap-2 py-1.5 px-4 bg-[#E8E8E4] border border-[#D0D0CC] text-[#1A1A1A] text-xs font-bold tracking-widest uppercase mb-8 font-['Rajdhani']">
-                ✦ #1 Vendor Jersey Custom Jepara
+                ✦ Jasa Pembuatan Jersey Custom — Jepara
             </span>
 
             <!-- Main Heading -->
             <h1 class="text-[clamp(4rem,12vw,9rem)] font-extrabold text-[#1A1A1A] leading-[0.9] uppercase mb-6 font-['Teko']">
-                Dominasi<br>
-                Permainan
+                Jersey Custom<br>
+                <span class="text-[#6B6B6B]">Terbaik</span>
             </h1>
 
             <!-- Subheading inline with image -->
@@ -41,8 +41,8 @@
                 >
                 <!-- Dark CTA overlay on image bottom-left -->
                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1A1A1A]/70 via-transparent to-transparent p-8 flex items-end justify-between">
-                    <p class="text-white text-2xl font-bold font-['Teko'] uppercase tracking-wide">Dengan <span class="text-white/70">Armor Premium</span></p>
-                    <span class="text-white/60 text-sm font-['Rajdhani'] font-semibold uppercase tracking-widest">Since 2022</span>
+                    <p class="text-white text-2xl font-bold font-['Teko'] uppercase tracking-wide">Material Premium, <span class="text-white/70">Jahitan Profesional</span></p>
+                    <span class="text-white/60 text-sm font-['Rajdhani'] font-semibold uppercase tracking-widest">Berdiri 2022</span>
                 </div>
             </div>
         </div>

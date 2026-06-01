@@ -12,29 +12,29 @@
             <!-- Step 1 -->
             <div class="bg-[#F2F2F0] p-8 hover:bg-[#E8E8E4] transition-all">
                 <div class="text-5xl font-extrabold text-[#D0D0CC] font-['Teko'] mb-4 leading-none">01</div>
-                <h3 class="text-2xl font-bold text-[#1A1A1A] uppercase font-['Teko'] mb-3">Pilih Desain</h3>
-                <p class="text-[#6B6B6B] text-sm font-['Rajdhani'] leading-relaxed">Pilih desain dari katalog kami atau bawa desain referensi Anda sendiri.</p>
+                <h3 class="text-2xl font-bold text-[#1A1A1A] uppercase font-['Teko'] mb-3">Pilih atau Kirim Desain</h3>
+                <p class="text-[#6B6B6B] text-sm font-['Rajdhani'] leading-relaxed">Pilih desain dari katalog kami, atau kirimkan referensi desain Anda lewat WhatsApp.</p>
             </div>
 
             <!-- Step 2 -->
             <div class="bg-[#F2F2F0] p-8 hover:bg-[#E8E8E4] transition-all">
                 <div class="text-5xl font-extrabold text-[#D0D0CC] font-['Teko'] mb-4 leading-none">02</div>
-                <h3 class="text-2xl font-bold text-[#1A1A1A] uppercase font-['Teko'] mb-3">Konsultasi WA</h3>
-                <p class="text-[#6B6B6B] text-sm font-['Rajdhani'] leading-relaxed">Hubungi admin via WhatsApp untuk diskusi detail warna, logo, dan ukuran.</p>
+                <h3 class="text-2xl font-bold text-[#1A1A1A] uppercase font-['Teko'] mb-3">Konsultasi via WhatsApp</h3>
+                <p class="text-[#6B6B6B] text-sm font-['Rajdhani'] leading-relaxed">Diskusikan detail warna, ukuran, logo, dan jumlah pesanan bersama tim kami melalui WhatsApp.</p>
             </div>
 
             <!-- Step 3 -->
             <div class="bg-[#F2F2F0] p-8 hover:bg-[#E8E8E4] transition-all">
                 <div class="text-5xl font-extrabold text-[#D0D0CC] font-['Teko'] mb-4 leading-none">03</div>
-                <h3 class="text-2xl font-bold text-[#1A1A1A] uppercase font-['Teko'] mb-3">DP & Produksi</h3>
-                <p class="text-[#6B6B6B] text-sm font-['Rajdhani'] leading-relaxed">Lakukan pembayaran DP 50%, lalu pesanan Anda langsung kami produksi.</p>
+                <h3 class="text-2xl font-bold text-[#1A1A1A] uppercase font-['Teko'] mb-3">Bayar DP & Proses Produksi</h3>
+                <p class="text-[#6B6B6B] text-sm font-['Rajdhani'] leading-relaxed">Lakukan pembayaran uang muka (DP) sebesar 50% untuk memulai proses produksi jersey Anda.</p>
             </div>
 
             <!-- Step 4 -->
             <div class="bg-[#1A1A1A] p-8">
                 <div class="text-5xl font-extrabold text-white/20 font-['Teko'] mb-4 leading-none">04</div>
-                <h3 class="text-2xl font-bold text-white uppercase font-['Teko'] mb-3">Pelunasan & Kirim</h3>
-                <p class="text-white/60 text-sm font-['Rajdhani'] leading-relaxed">Setelah selesai, lakukan pelunasan dan jersey akan dikirim ke alamat Anda.</p>
+                <h3 class="text-2xl font-bold text-white uppercase font-['Teko'] mb-3">Pelunasan & Jersey Dikirim</h3>
+                <p class="text-white/60 text-sm font-['Rajdhani'] leading-relaxed">Setelah jersey selesai diproduksi, lakukan pelunasan dan jersey langsung kami kirim ke alamat Anda.</p>
             </div>
         </div>
     </div>

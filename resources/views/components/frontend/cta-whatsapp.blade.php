@@ -4,12 +4,12 @@
             <!-- Star decoration -->
             <div class="text-white/20 text-4xl mb-8">✦</div>
 
-            <p class="text-white/40 text-xs font-bold tracking-widest uppercase mb-6 font-['Rajdhani']">Mulai Sekarang</p>
+            <p class="text-white/40 text-xs font-bold tracking-widest uppercase mb-6 font-['Rajdhani']">Konsultasi Gratis</p>
             <h2 class="text-5xl md:text-8xl font-extrabold text-white uppercase font-['Teko'] leading-none mb-6">
-                TUBUH ANDA<br>ADALAH<br><span class="text-white/40">KUIL ANDA.</span>
+                WUJUDKAN<br>JERSEY<br><span class="text-white/40">IMPIAN TIM ANDA.</span>
             </h2>
             <p class="text-white/50 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-['Rajdhani'] font-medium leading-relaxed">
-                Jangan tunggu lagi. Diskusikan desain impian tim Anda sekarang juga. Admin kami siap membantu 24/7.
+                Ceritakan desain yang Anda inginkan, kami bantu dari nol hingga jersey siap dipakai. Konsultasi WhatsApp gratis, tanpa perlu datang langsung.
             </p>
 
             <a href="https://wa.me/6285718516143?text=Halo%20Armor%20Sportwear,%20saya%20ingin%20konsultasi%20pembuatan%20jersey."
@@ -19,7 +19,7 @@
                 Hubungi via WhatsApp
             </a>
 
-            <p class="mt-6 text-white/30 text-sm font-['Rajdhani']">Konsultasi gratis, tanpa biaya tambahan.</p>
+            <p class="mt-6 text-white/30 text-sm font-['Rajdhani']">Respon cepat — biasanya dibalas dalam 1 jam kerja.</p>
         </div>
     </div>
 </section>
