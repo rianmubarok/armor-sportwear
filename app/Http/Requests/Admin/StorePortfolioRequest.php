@@ -24,7 +24,7 @@ class StorePortfolioRequest extends FormRequest
     {
         return [
             'images' => 'required|array',
-            'images.*' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,webp|max:20480',
         ];
     }
 }

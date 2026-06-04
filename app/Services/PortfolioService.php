@@ -14,12 +14,12 @@ class PortfolioService extends BaseService
     {
         if (isset($data['images']) && is_array($data['images'])) {
             foreach ($data['images'] as $image) {
-                $path = $image->store('portfolios', 'public');
+                $path = $this->compressAndStoreImage($image, 'portfolios');
                 Portfolio::create(['image' => $path]);
             }
         } elseif (isset($data['image'])) {
             // Fallback for single image just in case
-            $path = $data['image']->store('portfolios', 'public');
+            $path = $this->compressAndStoreImage($data['image'], 'portfolios');
             Portfolio::create(['image' => $path]);
         }
     }
@@ -34,7 +34,7 @@ class PortfolioService extends BaseService
             if ($portfolio->image) {
                 Storage::disk('public')->delete($portfolio->image);
             }
-            $data['image'] = $data['image']->store('portfolios', 'public');
+            $data['image'] = $this->compressAndStoreImage($data['image'], 'portfolios');
         }
 
         $portfolio->update($data);

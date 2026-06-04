@@ -14,11 +14,11 @@ class HeroImageService extends BaseService
     {
         if (isset($data['images']) && is_array($data['images'])) {
             foreach ($data['images'] as $image) {
-                $path = $image->store('hero_images', 'public');
+                $path = $this->compressAndStoreImage($image, 'hero_images');
                 HeroImage::create(['image' => $path]);
             }
         } elseif (isset($data['image'])) {
-            $path = $data['image']->store('hero_images', 'public');
+            $path = $this->compressAndStoreImage($data['image'], 'hero_images');
             HeroImage::create(['image' => $path]);
         }
     }
