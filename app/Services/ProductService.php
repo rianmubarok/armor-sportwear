@@ -18,10 +18,20 @@ class ProductService extends BaseService
 
         // Handle image upload
         if (isset($data['image'])) {
-            $data['image'] = $data['image']->store('products', 'public');
+            $data['image'] = $this->compressAndStoreImage($data['image'], 'products');
         }
 
-        return Product::create($data);
+        $product = Product::create($data);
+
+        // Handle gallery images
+        if (isset($data['gallery_images']) && is_array($data['gallery_images'])) {
+            foreach ($data['gallery_images'] as $image) {
+                $path = $this->compressAndStoreImage($image, 'products/gallery');
+                $product->images()->create(['image' => $path]);
+            }
+        }
+
+        return $product;
     }
 
     /**
@@ -39,10 +49,18 @@ class ProductService extends BaseService
             if ($product->image) {
                 Storage::disk('public')->delete($product->image);
             }
-            $data['image'] = $data['image']->store('products', 'public');
+            $data['image'] = $this->compressAndStoreImage($data['image'], 'products');
         }
 
         $product->update($data);
+
+        // Handle gallery images
+        if (isset($data['gallery_images']) && is_array($data['gallery_images'])) {
+            foreach ($data['gallery_images'] as $image) {
+                $path = $this->compressAndStoreImage($image, 'products/gallery');
+                $product->images()->create(['image' => $path]);
+            }
+        }
 
         return $product;
     }
@@ -55,6 +73,11 @@ class ProductService extends BaseService
         // Delete image physical file
         if ($product->image) {
             Storage::disk('public')->delete($product->image);
+        }
+
+        // Delete gallery images physically
+        foreach ($product->images as $galleryImage) {
+            Storage::disk('public')->delete($galleryImage->image);
         }
 
         return $product->delete();

@@ -26,4 +26,9 @@ class Product extends Model
     {
         return 'slug';
     }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
 }

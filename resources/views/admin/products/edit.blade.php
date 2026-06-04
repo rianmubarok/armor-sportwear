@@ -61,28 +61,69 @@
             </div>
 
             {{-- Image --}}
-            <div>
-                <label class="admin-label">Gambar Produk Saat Ini</label>
-                @if($product->image)
-                    <img src="{{ Storage::url($product->image) }}" alt="Preview"
-                         class="h-32 object-cover border border-[#D0D0CC] mb-4" id="current-img">
-                @endif
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {{-- Primary Image --}}
+                <div>
+                    <label class="admin-label">Gambar Utama Produk</label>
+                    @if($product->image)
+                        <img src="{{ Storage::url($product->image) }}" alt="Preview"
+                             class="h-32 object-cover border border-[#D0D0CC] mb-4" id="current-img">
+                    @endif
 
-                <label for="image" class="admin-label mt-4">Ganti Gambar (Opsional)</label>
-                <div class="border-2 border-dashed border-[#D0D0CC] bg-[#F8F8F6] hover:bg-[#F2F2F0] transition p-6 text-center cursor-pointer" onclick="document.getElementById('image').click()">
-                    <svg class="mx-auto h-8 w-8 text-[#C0C0BB] mb-2" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <p class="text-sm font-bold text-[#1A1A1A] font-['Rajdhani'] uppercase tracking-wider">Klik untuk ganti gambar</p>
-                    <p class="text-xs text-[#9A9A9A] font-['Rajdhani'] mt-1">JPG, PNG, WEBP — Maks 2MB</p>
-                    <input type="file" name="image" id="image" accept="image/*" class="hidden"
-                           onchange="previewImage(this)">
+                    <label for="image" class="admin-label mt-4">Ganti Gambar Utama (Opsional)</label>
+                    <div class="border-2 border-dashed border-[#D0D0CC] bg-[#F8F8F6] hover:bg-[#F2F2F0] transition p-6 text-center cursor-pointer" onclick="document.getElementById('image').click()">
+                        <svg class="mx-auto h-8 w-8 text-[#C0C0BB] mb-2" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="text-sm font-bold text-[#1A1A1A] font-['Rajdhani'] uppercase tracking-wider">Klik untuk ganti utama</p>
+                        <p class="text-xs text-[#9A9A9A] font-['Rajdhani'] mt-1">Maks 20MB</p>
+                        <input type="file" name="image" id="image" accept="image/*" class="hidden"
+                               onchange="previewImage(this)">
+                    </div>
+                    <div id="image-preview" class="mt-3 hidden">
+                        <p class="text-[10px] text-[#9A9A9A] font-bold uppercase tracking-wider font-['Rajdhani'] mb-1">Preview Baru:</p>
+                        <img id="preview-img" src="" alt="Preview" class="h-32 object-cover border border-[#D0D0CC]">
+                    </div>
+                    @error('image') <p class="mt-1 text-sm text-red-500 font-['Rajdhani']">{{ $message }}</p> @enderror
                 </div>
-                <div id="image-preview" class="mt-3 hidden">
-                    <p class="text-[10px] text-[#9A9A9A] font-bold uppercase tracking-wider font-['Rajdhani'] mb-1">Preview Baru:</p>
-                    <img id="preview-img" src="" alt="Preview" class="h-32 object-cover border border-[#D0D0CC]">
+
+                {{-- Gallery Images --}}
+                <div>
+                    <label class="admin-label">Galeri Gambar Produk</label>
+                    @if($product->images->count() > 0)
+                        <div class="grid grid-cols-3 sm:grid-cols-4 gap-2 mb-4">
+                            @foreach($product->images as $galleryImg)
+                                <div class="aspect-square relative group overflow-hidden border border-[#D0D0CC]">
+                                    <img src="{{ Storage::url($galleryImg->image) }}" class="w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-[#1A1A1A]/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <button type="button" onclick="deleteGalleryImage('{{ route('admin.product-images.destroy', $galleryImg) }}')" class="bg-red-600 hover:bg-red-700 text-white p-2 rounded-full transition-transform transform scale-90 group-hover:scale-100" title="Hapus Gambar">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="bg-[#F8F8F6] border border-[#D0D0CC] p-4 text-center mb-4 text-[#9A9A9A] text-sm font-['Rajdhani']">
+                            Belum ada gambar galeri.
+                        </div>
+                    @endif
+
+                    <label for="gallery_images" class="admin-label mt-4">Tambah Gambar Galeri (Opsional)</label>
+                    <div class="border-2 border-dashed border-[#D0D0CC] bg-[#F8F8F6] hover:bg-[#F2F2F0] transition p-6 text-center cursor-pointer" onclick="document.getElementById('gallery_images').click()">
+                        <svg class="mx-auto h-8 w-8 text-[#C0C0BB] mb-2" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="text-sm font-bold text-[#1A1A1A] font-['Rajdhani'] uppercase tracking-wider">Klik untuk tambah galeri</p>
+                        <p class="text-xs text-[#9A9A9A] font-['Rajdhani'] mt-1">Bisa pilih banyak gambar</p>
+                        <input type="file" name="gallery_images[]" id="gallery_images" accept="image/*" multiple class="hidden"
+                               onchange="updateGalleryCount(this)">
+                    </div>
+                    <div id="gallery-info" class="mt-2 text-sm text-[#9A9A9A] font-['Rajdhani'] font-medium hidden">
+                        <span id="gallery-count">0</span> gambar dipilih
+                    </div>
+                    @error('gallery_images.*') <p class="mt-1 text-sm text-red-500 font-['Rajdhani']">{{ $message }}</p> @enderror
                 </div>
-                @error('image') <p class="mt-1 text-sm text-red-500 font-['Rajdhani']">{{ $message }}</p> @enderror
             </div>
 
             {{-- Actions --}}
@@ -109,6 +150,11 @@
     </div>
 </div>
 
+<form id="delete-gallery-form" method="POST" style="display: none;">
+    @csrf
+    @method('DELETE')
+</form>
+
 <script>
 function previewImage(input) {
     if (input.files && input.files[0]) {
@@ -118,6 +164,27 @@ function previewImage(input) {
             document.getElementById('image-preview').classList.remove('hidden');
         };
         reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function updateGalleryCount(input) {
+    const count = input.files ? input.files.length : 0;
+    const infoDiv = document.getElementById('gallery-info');
+    const countSpan = document.getElementById('gallery-count');
+    
+    if (count > 0) {
+        countSpan.textContent = count;
+        infoDiv.classList.remove('hidden');
+    } else {
+        infoDiv.classList.add('hidden');
+    }
+}
+
+function deleteGalleryImage(url) {
+    if (confirm('Hapus gambar galeri ini?')) {
+        const form = document.getElementById('delete-gallery-form');
+        form.action = url;
+        form.submit();
     }
 }
 </script>

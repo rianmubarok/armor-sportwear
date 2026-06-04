@@ -16,16 +16,32 @@
             <div class="grid grid-cols-1 lg:grid-cols-2">
 
                 {{-- Image Section --}}
-                <div class="aspect-square lg:aspect-auto bg-[#E8E8E4] relative min-h-[400px]">
-                    <img src="{{ Storage::url($product->image) }}"
-                         alt="{{ $product->name }}"
-                         class="absolute inset-0 w-full h-full object-cover">
-                    {{-- Category badge --}}
-                    @if($product->category)
-                    <div class="absolute top-6 left-6">
-                        <span class="bg-[#1A1A1A] text-white text-xs px-3 py-1.5 font-bold uppercase tracking-widest font-['Rajdhani']">
-                            {{ $product->category }}
-                        </span>
+                <div class="flex flex-col bg-[#E8E8E4]">
+                    <div class="aspect-square lg:aspect-auto relative min-h-[400px] flex-1">
+                        <img id="main-product-image" src="{{ Storage::url($product->image) }}"
+                             alt="{{ $product->name }}"
+                             class="absolute inset-0 w-full h-full object-cover transition-all duration-300">
+                        {{-- Category badge --}}
+                        @if($product->category)
+                        <div class="absolute top-6 left-6">
+                            <span class="bg-[#1A1A1A] text-white text-xs px-3 py-1.5 font-bold uppercase tracking-widest font-['Rajdhani']">
+                                {{ $product->category }}
+                            </span>
+                        </div>
+                        @endif
+                    </div>
+
+                    {{-- Gallery Thumbnails --}}
+                    @if($product->images->count() > 0)
+                    <div class="flex overflow-x-auto gap-4 p-6 bg-white border-t border-[#D0D0CC]">
+                        <img src="{{ Storage::url($product->image) }}" 
+                             onclick="document.getElementById('main-product-image').src=this.src"
+                             class="w-20 h-20 object-cover cursor-pointer hover:opacity-75 transition-opacity border border-[#D0D0CC] flex-shrink-0">
+                        @foreach($product->images as $galleryImg)
+                            <img src="{{ Storage::url($galleryImg->image) }}" 
+                                 onclick="document.getElementById('main-product-image').src=this.src"
+                                 class="w-20 h-20 object-cover cursor-pointer hover:opacity-75 transition-opacity border border-[#D0D0CC] flex-shrink-0">
+                        @endforeach
                     </div>
                     @endif
                 </div>

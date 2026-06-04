@@ -58,21 +58,40 @@
             </div>
 
             {{-- Image --}}
-            <div>
-                <label for="image" class="admin-label">Gambar Produk</label>
-                <div class="border-2 border-dashed border-[#D0D0CC] bg-[#F8F8F6] hover:bg-[#F2F2F0] transition p-6 text-center cursor-pointer" onclick="document.getElementById('image').click()">
-                    <svg class="mx-auto h-10 w-10 text-[#C0C0BB] mb-2" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <p class="text-sm font-bold text-[#1A1A1A] font-['Rajdhani'] uppercase tracking-wider">Klik untuk unggah gambar</p>
-                    <p class="text-xs text-[#9A9A9A] font-['Rajdhani'] mt-1">JPG, PNG, WEBP — Maks 2MB</p>
-                    <input type="file" name="image" id="image" accept="image/*" required class="hidden"
-                           onchange="previewImage(this)">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="image" class="admin-label">Gambar Utama Produk</label>
+                    <div class="border-2 border-dashed border-[#D0D0CC] bg-[#F8F8F6] hover:bg-[#F2F2F0] transition p-6 text-center cursor-pointer" onclick="document.getElementById('image').click()">
+                        <svg class="mx-auto h-10 w-10 text-[#C0C0BB] mb-2" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="text-sm font-bold text-[#1A1A1A] font-['Rajdhani'] uppercase tracking-wider">Klik untuk unggah utama</p>
+                        <p class="text-xs text-[#9A9A9A] font-['Rajdhani'] mt-1">Wajib (Max 20MB)</p>
+                        <input type="file" name="image" id="image" accept="image/*" required class="hidden"
+                               onchange="previewImage(this)">
+                    </div>
+                    <div id="image-preview" class="mt-3 hidden">
+                        <img id="preview-img" src="" alt="Preview" class="h-32 object-cover border border-[#D0D0CC]">
+                    </div>
+                    @error('image') <p class="mt-1 text-sm text-red-500 font-['Rajdhani']">{{ $message }}</p> @enderror
                 </div>
-                <div id="image-preview" class="mt-3 hidden">
-                    <img id="preview-img" src="" alt="Preview" class="h-32 object-cover border border-[#D0D0CC]">
+
+                <div>
+                    <label for="gallery_images" class="admin-label">Gambar Galeri (Opsional)</label>
+                    <div class="border-2 border-dashed border-[#D0D0CC] bg-[#F8F8F6] hover:bg-[#F2F2F0] transition p-6 text-center cursor-pointer" onclick="document.getElementById('gallery_images').click()">
+                        <svg class="mx-auto h-10 w-10 text-[#C0C0BB] mb-2" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="text-sm font-bold text-[#1A1A1A] font-['Rajdhani'] uppercase tracking-wider">Klik untuk tambah galeri</p>
+                        <p class="text-xs text-[#9A9A9A] font-['Rajdhani'] mt-1">Bisa pilih banyak gambar sekaligus</p>
+                        <input type="file" name="gallery_images[]" id="gallery_images" accept="image/*" multiple class="hidden"
+                               onchange="updateGalleryCount(this)">
+                    </div>
+                    <div id="gallery-info" class="mt-2 text-sm text-[#9A9A9A] font-['Rajdhani'] font-medium hidden">
+                        <span id="gallery-count">0</span> gambar dipilih
+                    </div>
+                    @error('gallery_images.*') <p class="mt-1 text-sm text-red-500 font-['Rajdhani']">{{ $message }}</p> @enderror
                 </div>
-                @error('image') <p class="mt-1 text-sm text-red-500 font-['Rajdhani']">{{ $message }}</p> @enderror
             </div>
 
             {{-- Actions --}}
@@ -96,6 +115,19 @@ function previewImage(input) {
             document.getElementById('image-preview').classList.remove('hidden');
         };
         reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function updateGalleryCount(input) {
+    const count = input.files ? input.files.length : 0;
+    const infoDiv = document.getElementById('gallery-info');
+    const countSpan = document.getElementById('gallery-count');
+    
+    if (count > 0) {
+        countSpan.textContent = count;
+        infoDiv.classList.remove('hidden');
+    } else {
+        infoDiv.classList.add('hidden');
     }
 }
 </script>

@@ -25,6 +25,7 @@ Route::prefix('admin')
 
         // Manajemen Produk
         Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
+        Route::delete('product-images/{productImage}', [\App\Http\Controllers\Admin\ProductImageController::class, 'destroy'])->name('product-images.destroy');
 
         // Manajemen Portofolio
         Route::resource('portfolios', \App\Http\Controllers\Admin\PortfolioController::class);
