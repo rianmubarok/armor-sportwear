@@ -32,17 +32,17 @@
             {{-- Category & Price --}}
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label for="category" class="admin-label">Kategori</label>
+                    <label for="category" class="admin-label">Kategori (Opsional)</label>
                     <input type="text" name="category" id="category" value="{{ old('category') }}"
-                        placeholder="Esport, Sepakbola, Basket..." required
+                        placeholder="Esport, Sepakbola, Basket..."
                         class="admin-input @error('category') border-red-400 @enderror">
                     @error('category') <p class="mt-1 text-sm text-red-500 font-['Rajdhani']">{{ $message }}</p> @enderror
                 </div>
 
                 <div>
-                    <label for="price_start_from" class="admin-label">Harga Mulai Dari (Rp)</label>
+                    <label for="price_start_from" class="admin-label">Harga Mulai Dari (Rp) - Opsional</label>
                     <input type="number" name="price_start_from" id="price_start_from"
-                        value="{{ old('price_start_from', 0) }}" min="0" required
+                        value="{{ old('price_start_from') }}" min="0"
                         class="admin-input @error('price_start_from') border-red-400 @enderror">
                     @error('price_start_from') <p class="mt-1 text-sm text-red-500 font-['Rajdhani']">{{ $message }}</p> @enderror
                 </div>

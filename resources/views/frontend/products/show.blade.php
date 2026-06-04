@@ -21,11 +21,13 @@
                          alt="{{ $product->name }}"
                          class="absolute inset-0 w-full h-full object-cover">
                     {{-- Category badge --}}
+                    @if($product->category)
                     <div class="absolute top-6 left-6">
                         <span class="bg-[#1A1A1A] text-white text-xs px-3 py-1.5 font-bold uppercase tracking-widest font-['Rajdhani']">
                             {{ $product->category }}
                         </span>
                     </div>
+                    @endif
                 </div>
 
                 {{-- Detail Section --}}
@@ -33,11 +35,19 @@
 
                     <h1 class="text-5xl md:text-6xl font-extrabold text-[#1A1A1A] uppercase font-['Teko'] leading-none mb-6">{{ $product->name }}</h1>
 
+                    @if($product->price_start_from)
                     <div class="mb-8 pb-8 border-b border-[#D0D0CC]">
                         <span class="text-[#6B6B6B] block mb-1 text-xs font-bold uppercase tracking-widest font-['Rajdhani']">Estimasi Harga Mulai</span>
                         <span class="text-4xl font-bold text-[#1A1A1A] font-['Teko']">Rp {{ number_format($product->price_start_from, 0, ',', '.') }}</span>
                         <p class="text-xs text-[#6B6B6B] mt-2 font-['Rajdhani']">*Harga akhir menyesuaikan dengan bahan, sablon, dan tingkat kesulitan custom.</p>
                     </div>
+                    @else
+                    <div class="mb-8 pb-8 border-b border-[#D0D0CC]">
+                        <span class="text-[#6B6B6B] block mb-1 text-xs font-bold uppercase tracking-widest font-['Rajdhani']">Estimasi Harga</span>
+                        <span class="text-3xl font-bold text-[#1A1A1A] font-['Teko']">Hubungi Kami</span>
+                        <p class="text-xs text-[#6B6B6B] mt-2 font-['Rajdhani']">*Harga menyesuaikan dengan bahan, sablon, dan tingkat kesulitan custom.</p>
+                    </div>
+                    @endif
 
                     <div class="mb-10">
                         <h3 class="text-xs font-bold text-[#1A1A1A] uppercase tracking-widest mb-3 font-['Rajdhani']">Deskripsi & Detail</h3>
@@ -46,10 +56,12 @@
 
                     {{-- Stats / detail row --}}
                     <div class="grid grid-cols-3 gap-4 mb-10 border-t border-[#D0D0CC] pt-8">
+                        @if($product->category)
                         <div>
                             <span class="text-xs font-bold text-[#6B6B6B] uppercase tracking-widest block mb-1 font-['Rajdhani']">Kategori</span>
                             <span class="text-lg font-bold text-[#1A1A1A] uppercase font-['Teko']">{{ $product->category }}</span>
                         </div>
+                        @endif
                         <div>
                             <span class="text-xs font-bold text-[#6B6B6B] uppercase tracking-widest block mb-1 font-['Rajdhani']">Bahan</span>
                             <span class="text-lg font-bold text-[#1A1A1A] uppercase font-['Teko']">Dry-Fit</span>

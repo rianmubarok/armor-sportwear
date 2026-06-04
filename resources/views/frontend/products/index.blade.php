@@ -23,11 +23,13 @@
                         <img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
                         {{-- Category badge --}}
+                        @if($product->category)
                         <div class="absolute top-4 left-4">
                             <span class="bg-[#1A1A1A] text-white text-xs px-3 py-1 font-bold uppercase tracking-widest font-['Rajdhani']">
                                 {{ $product->category }}
                             </span>
                         </div>
+                        @endif
                         {{-- Hover overlay --}}
                         <div class="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/20 transition-all duration-300 flex items-center justify-center">
                             <span class="btn-dark opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-sm py-3 px-5">
@@ -44,6 +46,7 @@
                         </div>
                         <p class="text-[#6B6B6B] text-sm line-clamp-2 mb-4 flex-1 font-['Rajdhani'] font-medium">{{ $product->description }}</p>
 
+                        @if($product->price_start_from)
                         <div class="flex items-center justify-between mt-auto pt-4 border-t border-[#D0D0CC]">
                             <div>
                                 <span class="text-xs text-[#6B6B6B] block font-['Rajdhani'] uppercase tracking-wider">Mulai dari</span>
@@ -54,6 +57,14 @@
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                             </a>
                         </div>
+                        @else
+                        <div class="flex items-center justify-end mt-auto pt-4 border-t border-[#D0D0CC]">
+                            <a href="{{ route('katalog.show', $product) }}"
+                               class="w-10 h-10 bg-[#1A1A1A] flex items-center justify-center text-white hover:bg-[#333] transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                        </div>
+                        @endif
                     </div>
                 </div>
             @empty
