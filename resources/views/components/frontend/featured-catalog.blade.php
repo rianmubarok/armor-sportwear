@@ -15,11 +15,7 @@
             <div class="group bg-[#E8E8E4] overflow-hidden hover:bg-[#DEDED8] transition-all duration-300 border border-[#D0D0CC]">
                 <div class="aspect-[4/5] relative overflow-hidden">
                     <img src="{{ $product->image ? asset('storage/' . $product->image) : 'https://images.unsplash.com/photo-1628891435222-06592ce29663?q=80&w=600&auto=format&fit=crop' }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="{{ $product->name }}">
-                    <div class="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/30 transition-all duration-300 flex items-center justify-center">
-                        <a href="{{ url('/request-order') }}" class="btn-dark opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-sm py-3 px-5">
-                            Custom Desain Ini
-                        </a>
-                    </div>
+                    <div class="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/30 transition-all duration-300 pointer-events-none"></div>
                     <div class="absolute top-4 left-4">
                         <span class="bg-[#1A1A1A] text-white text-xs px-3 py-1 font-bold uppercase tracking-widest font-['Rajdhani']">{{ $product->category ?? 'Produk' }}</span>
                     </div>
