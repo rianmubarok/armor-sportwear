@@ -2,10 +2,10 @@
 
 @section('content')
     <!-- Hero Section -->
-    <x-frontend.hero />
+    <x-frontend.hero :heroImages="$heroImages" />
 
     <!-- Katalog / Featured Products Section -->
-    <x-frontend.featured-catalog />
+    <x-frontend.featured-catalog :products="$featuredProducts" />
 
     <!-- Keunggulan Layanan Section -->
     <x-frontend.features />
@@ -17,7 +17,7 @@
     <x-frontend.order-steps />
 
     <!-- Portfolio / Hasil Produksi Section -->
-    <x-frontend.portfolio />
+    <x-frontend.portfolio :portfolios="$portfolios" />
 
     <!-- CTA WhatsApp Section -->
     <x-frontend.cta-whatsapp />

@@ -1,3 +1,17 @@
+@props(['heroImages' => collect()])
+
+@php
+    $defaultImage = 'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1800&auto=format&fit=crop';
+    
+    $allImages = [];
+    $initialImage = $defaultImage;
+    
+    if($heroImages->count() > 0) {
+        $allImages = $heroImages->map(function($img) { return Storage::url($img->image); })->toArray();
+        $initialImage = $allImages[0];
+    }
+@endphp
+
 <section class="relative pt-32 pb-0 overflow-hidden bg-[#F2F2F0]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div class="max-w-5xl">
@@ -33,14 +47,15 @@
     <!-- Hero Image -->
     <div class="relative w-full mt-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="relative overflow-hidden" style="height: 55vw; max-height: 600px; min-height: 280px;">
+            <div class="relative overflow-hidden bg-[#D8D8D4]" style="height: 55vw; max-height: 600px; min-height: 280px;">
                 <img
-                    src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1800&auto=format&fit=crop"
-                    class="w-full h-full object-cover"
+                    id="dynamic-hero-img"
+                    src="{{ $initialImage }}"
+                    class="w-full h-full object-cover transition-opacity duration-1000 opacity-90"
                     alt="Armor Sportwear Jersey"
                 >
                 <!-- Dark CTA overlay on image bottom-left -->
-                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1A1A1A]/70 via-transparent to-transparent p-8 flex items-end justify-between">
+                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1A1A1A]/70 via-transparent to-transparent p-8 flex items-end justify-between pointer-events-none">
                     <p class="text-white text-2xl font-bold font-['Teko'] uppercase tracking-wide">Material Premium, <span class="text-white/70">Jahitan Profesional</span></p>
                     <span class="text-white/60 text-sm font-['Rajdhani'] font-semibold uppercase tracking-widest">Berdiri 2022</span>
                 </div>
@@ -48,3 +63,29 @@
         </div>
     </div>
 </section>
+
+@if(count($allImages) > 1)
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const allImages = @json($allImages);
+    const imgEl = document.getElementById('dynamic-hero-img');
+    
+    let currentIndex = 0;
+    
+    setInterval(() => {
+        // Pilih gambar selanjutnya
+        currentIndex = (currentIndex + 1) % allImages.length;
+        const newImage = allImages[currentIndex];
+        
+        // Efek fade out
+        imgEl.style.opacity = 0;
+        
+        // Ganti gambar dan fade in setelah setengah detik
+        setTimeout(() => {
+            imgEl.src = newImage;
+            imgEl.style.opacity = 0.9;
+        }, 500);
+    }, 5000); // Ganti setiap 5 detik
+});
+</script>
+@endif

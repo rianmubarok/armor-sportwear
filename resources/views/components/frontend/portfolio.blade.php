@@ -1,3 +1,4 @@
+@props(['portfolios' => []])
 <section id="portfolio" class="py-24 bg-[#E8E8E4]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-[#D0D0CC] pb-8 gap-6">
@@ -14,30 +15,60 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
-            <!-- Portfolio Item 1 -->
-            <div class="aspect-square bg-[#D8D8D4] overflow-hidden group relative">
-                <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?q=80&w=400&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
-                <div class="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/30 transition-opacity duration-300"></div>
-            </div>
+        @php
+            $initialPortfolios = $portfolios->take(4);
+            $allImages = $portfolios->map(function($p) { return Storage::url($p->image); })->toArray();
+        @endphp
 
-            <!-- Portfolio Item 2 -->
-            <div class="aspect-square bg-[#D8D8D4] overflow-hidden group relative">
-                <img src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=400&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
-                <div class="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/30 transition-opacity duration-300"></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2" id="portfolio-grid">
+            @forelse($initialPortfolios as $index => $portfolio)
+            <!-- Portfolio Item -->
+            <div class="aspect-square bg-[#D8D8D4] overflow-hidden group relative portfolio-slot">
+                <img src="{{ Storage::url($portfolio->image) }}" alt="Portfolio" class="portfolio-img absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-90">
+                <div class="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/10 transition-all duration-300"></div>
             </div>
-
-            <!-- Portfolio Item 3 -->
-            <div class="aspect-square bg-[#D8D8D4] overflow-hidden group relative">
-                <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?q=80&w=400&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
-                <div class="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/30 transition-opacity duration-300"></div>
+            @empty
+            <div class="col-span-full text-center py-10">
+                <p class="text-[#6B6B6B] font-['Rajdhani']">Belum ada karya portofolio yang ditampilkan.</p>
             </div>
-
-            <!-- Portfolio Item 4 -->
-            <div class="aspect-square bg-[#D8D8D4] overflow-hidden group relative">
-                <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?q=80&w=400&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
-                <div class="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/30 transition-opacity duration-300"></div>
-            </div>
+            @endforelse
         </div>
     </div>
 </section>
+
+@if(count($allImages) > 4)
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const allImages = @json($allImages);
+    const slots = document.querySelectorAll('.portfolio-slot');
+    
+    // Set interval untuk animasi ganti gambar acak
+    setInterval(() => {
+        // Pilih slot acak (0 sampai 3)
+        const randomSlotIndex = Math.floor(Math.random() * slots.length);
+        const slot = slots[randomSlotIndex];
+        const imgEl = slot.querySelector('.portfolio-img');
+        
+        // Dapatkan gambar yang sedang tampil
+        const currentDisplayed = Array.from(document.querySelectorAll('.portfolio-img')).map(img => img.getAttribute('src'));
+        
+        // Cari gambar yang belum tampil
+        const availableImages = allImages.filter(src => !currentDisplayed.includes(src));
+        
+        if (availableImages.length > 0) {
+            // Pilih satu gambar baru secara acak
+            const randomNewImage = availableImages[Math.floor(Math.random() * availableImages.length)];
+            
+            // Efek fade out
+            imgEl.style.opacity = 0;
+            
+            // Tunggu sebentar, lalu ganti source gambar dan fade in
+            setTimeout(() => {
+                imgEl.src = randomNewImage;
+                imgEl.style.opacity = 0.9;
+            }, 500); // 500ms adalah setengah dari durasi transisi
+        }
+    }, 4000); // Lakukan pergantian setiap 4 detik
+});
+</script>
+@endif

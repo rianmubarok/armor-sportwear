@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Portfolio;
+use App\Models\HeroImage;
 
 class HomeController extends Controller
 {
@@ -12,6 +15,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.home');
+        $featuredProducts = Product::latest()->take(3)->get();
+        $portfolios = Portfolio::inRandomOrder()->take(20)->get();
+        $heroImages = HeroImage::inRandomOrder()->get();
+        
+        return view('frontend.home', compact('featuredProducts', 'portfolios', 'heroImages'));
     }
 }

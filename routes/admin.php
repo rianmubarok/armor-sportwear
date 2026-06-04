@@ -26,4 +26,10 @@ Route::prefix('admin')
         // Manajemen Produk
         Route::resource('products', \App\Http\Controllers\Admin\ProductController::class);
 
+        // Manajemen Portofolio
+        Route::resource('portfolios', \App\Http\Controllers\Admin\PortfolioController::class);
+
+        // Manajemen Hero Image
+        Route::resource('hero-images', \App\Http\Controllers\Admin\HeroImageController::class)->only(['index', 'create', 'store', 'destroy']);
+
     });
