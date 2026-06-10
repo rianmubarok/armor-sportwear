@@ -4,7 +4,7 @@
 @section('page-subtitle', 'Perbarui data katalog produk')
 
 @section('content')
-<div class="max-w-3xl">
+<div class="w-full">
 
     {{-- Back link --}}
     <a href="{{ route('admin.products.index') }}" class="inline-flex items-center gap-2 text-[#9A9A9A] hover:text-[#1A1A1A] transition text-xs font-bold uppercase tracking-widest font-['Rajdhani'] mb-6">
@@ -128,15 +128,10 @@
 
             {{-- Actions --}}
             <div class="pt-4 flex flex-col sm:flex-row justify-between gap-3 border-t border-[#D0D0CC]">
-                <form action="{{ route('admin.products.destroy', $product) }}" method="POST"
-                      onsubmit="return confirm('Hapus produk ini secara permanen?');">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="admin-btn-danger">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                        Hapus Produk
-                    </button>
-                </form>
+                <button type="button" onclick="if(confirm('Hapus produk ini secara permanen?')) { document.getElementById('form-delete-product').submit(); }" class="admin-btn-danger">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                    Hapus Produk
+                </button>
 
                 <div class="flex gap-3">
                     <a href="{{ route('admin.products.index') }}" class="admin-btn-outline">Batal</a>
@@ -149,6 +144,11 @@
         </form>
     </div>
 </div>
+
+<form id="form-delete-product" action="{{ route('admin.products.destroy', $product) }}" method="POST" style="display: none;">
+    @csrf
+    @method('DELETE')
+</form>
 
 <form id="delete-gallery-form" method="POST" style="display: none;">
     @csrf

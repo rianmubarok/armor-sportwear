@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="max-w-3xl">
+<div class="w-full">
     <a href="{{ route('admin.hero-images.index') }}" class="inline-flex items-center gap-2 text-sm font-bold tracking-widest text-[#9A9A9A] hover:text-[#1A1A1A] transition-colors uppercase font-['Rajdhani'] mb-6">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
         Kembali ke Daftar

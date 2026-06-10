@@ -13,11 +13,11 @@
                 <ul class="space-y-3 mb-10">
                     <li class="flex items-center gap-3 text-[#1A1A1A] font-['Rajdhani'] font-semibold text-base border-b border-[#D0D0CC] pb-3">
                         <span class="text-[#1A1A1A] font-bold">01</span>
-                        Pilih warna dasar jersey tim Anda
+                        Pilih template desain jersey favorit Anda
                     </li>
                     <li class="flex items-center gap-3 text-[#1A1A1A] font-['Rajdhani'] font-semibold text-base border-b border-[#D0D0CC] pb-3">
                         <span class="text-[#1A1A1A] font-bold">02</span>
-                        Upload logo untuk ditempatkan di dada atau lengan
+                        Sesuaikan warna jersey menggunakan slider warna
                     </li>
                     <li class="flex items-center gap-3 text-[#1A1A1A] font-['Rajdhani'] font-semibold text-base">
                         <span class="text-[#1A1A1A] font-bold">03</span>
@@ -34,12 +34,8 @@
             <!-- Image/Preview Visual -->
             <div class="lg:w-1/2 w-full">
                 <div class="relative overflow-hidden border border-[#D0D0CC]">
-                    <div class="aspect-square bg-[#D8D8D4] flex items-center justify-center overflow-hidden relative group">
-                        <img src="https://images.unsplash.com/photo-1527347673044-6fbc8d7d2640?q=80&w=600&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" alt="Jersey Preview">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/50 to-transparent"></div>
-                        <a href="{{ route('preview-jersey') }}" class="absolute bottom-8 left-8 right-8">
-                            <span class="btn-dark w-full justify-center text-base">Coba Preview Jersey →</span>
-                        </a>
+                    <div class="aspect-square bg-[#FFFFFF] flex items-center justify-center overflow-hidden relative group">
+                        <img src="{{ asset('images/jersey/jersey-1-front.png') }}" class="absolute inset-0 w-full h-full object-contain p-8 group-hover:scale-105 transition-transform duration-700 opacity-90" alt="Jersey Preview">
                     </div>
                 </div>
             </div>

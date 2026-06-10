@@ -22,6 +22,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('frontend.products.show', compact('product'));
+        $otherProducts = Product::where('id', '!=', $product->id)->inRandomOrder()->take(4)->get();
+        return view('frontend.products.show', compact('product', 'otherProducts'));
     }
 }

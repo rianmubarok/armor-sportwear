@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ProductController;
-
 use App\Http\Controllers\Frontend\JerseyPreviewController;
 
 // Landing page publik (tidak perlu login)

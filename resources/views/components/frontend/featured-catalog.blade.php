@@ -12,17 +12,21 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @forelse($products as $product)
             <!-- Product Card -->
-            <div class="group bg-[#E8E8E4] overflow-hidden hover:bg-[#DEDED8] transition-all duration-300 border border-[#D0D0CC]">
-                <div class="aspect-[4/5] relative overflow-hidden">
+            <div class="group bg-[#E8E8E4] overflow-hidden hover:bg-[#DEDED8] transition-all duration-300 border border-[#D0D0CC] flex flex-col">
+                <a href="{{ route('katalog.show', $product) }}" class="block aspect-[4/5] relative overflow-hidden bg-[#D8D8D4]">
                     <img src="{{ $product->image ? asset('storage/' . $product->image) : 'https://images.unsplash.com/photo-1628891435222-06592ce29663?q=80&w=600&auto=format&fit=crop' }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="{{ $product->name }}">
-                    <div class="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/30 transition-all duration-300 pointer-events-none"></div>
-                    <div class="absolute top-4 left-4">
-                        <span class="bg-[#1A1A1A] text-white text-xs px-3 py-1 font-bold uppercase tracking-widest font-['Rajdhani']">{{ $product->category ?? 'Produk' }}</span>
+                    <div class="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/20 transition-all duration-300 flex items-center justify-center">
+                        <span class="btn-dark opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-sm py-3 px-5">
+                            Lihat Detail
+                        </span>
                     </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-[#1A1A1A] uppercase font-['Teko'] mb-1">{{ $product->name }}</h3>
-                    <p class="text-[#6B6B6B] text-sm font-['Rajdhani'] font-medium">{{ Str::limit($product->description, 60) }}</p>
+
+                </a>
+                <div class="p-6 flex flex-col flex-1">
+                    <a href="{{ route('katalog.show', $product) }}">
+                        <h3 class="text-2xl font-bold text-[#1A1A1A] uppercase font-['Teko'] mb-2 group-hover:text-[#6B6B6B] transition-colors leading-tight">{{ $product->name }}</h3>
+                    </a>
+                    <p class="text-[#6B6B6B] text-sm font-['Rajdhani'] font-medium line-clamp-2">{{ $product->description }}</p>
                 </div>
             </div>
             @empty

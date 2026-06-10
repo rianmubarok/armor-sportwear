@@ -33,4 +33,7 @@ Route::prefix('admin')
         // Manajemen Hero Image
         Route::resource('hero-images', \App\Http\Controllers\Admin\HeroImageController::class)->only(['index', 'create', 'store', 'destroy']);
 
+        // Manajemen Pesanan
+        Route::resource('orders', \App\Http\Controllers\Admin\OrderController::class);
+
     });

@@ -19,7 +19,7 @@
             <!-- Step 2 -->
             <div class="bg-[#F2F2F0] p-8 hover:bg-[#E8E8E4] transition-all">
                 <div class="text-5xl font-extrabold text-[#D0D0CC] font-['Teko'] mb-4 leading-none">02</div>
-                <h3 class="text-2xl font-bold text-[#1A1A1A] uppercase font-['Teko'] mb-3">Konsultasi via WhatsApp</h3>
+                <h3 class="text-2xl font-bold text-[#1A1A1A] uppercase font-['Teko'] mb-3">Pesan via WhatsApp</h3>
                 <p class="text-[#6B6B6B] text-sm font-['Rajdhani'] leading-relaxed">Diskusikan detail warna, ukuran, logo, dan jumlah pesanan bersama tim kami melalui WhatsApp.</p>
             </div>
 

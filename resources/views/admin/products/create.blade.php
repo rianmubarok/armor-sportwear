@@ -4,7 +4,7 @@
 @section('page-subtitle', 'Isi formulir untuk menambahkan katalog produk baru')
 
 @section('content')
-<div class="max-w-3xl">
+<div class="w-full">
 
     {{-- Back link --}}
     <a href="{{ route('admin.products.index') }}" class="inline-flex items-center gap-2 text-[#9A9A9A] hover:text-[#1A1A1A] transition text-xs font-bold uppercase tracking-widest font-['Rajdhani'] mb-6">

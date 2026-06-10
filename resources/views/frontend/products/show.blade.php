@@ -17,10 +17,15 @@
 
                 {{-- Image Section --}}
                 <div class="flex flex-col bg-[#E8E8E4]">
-                    <div class="aspect-square lg:aspect-auto relative min-h-[400px] flex-1">
+                    <div class="aspect-square lg:aspect-auto relative min-h-[400px] flex-1 group cursor-pointer" onclick="openModal(document.getElementById('main-product-image').src)">
                         <img id="main-product-image" src="{{ Storage::url($product->image) }}"
                              alt="{{ $product->name }}"
-                             class="absolute inset-0 w-full h-full object-cover transition-all duration-300">
+                             class="absolute inset-0 w-full h-full object-cover transition-all duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/10 transition-all duration-300 flex items-center justify-center pointer-events-none">
+                            <span class="bg-[#1A1A1A] text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-75 group-hover:scale-100">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                            </span>
+                        </div>
                         {{-- Category badge --}}
                         @if($product->category)
                         <div class="absolute top-6 left-6">
@@ -71,35 +76,23 @@
                     </div>
 
                     {{-- Stats / detail row --}}
+                    @if($product->category)
                     <div class="grid grid-cols-3 gap-4 mb-10 border-t border-[#D0D0CC] pt-8">
-                        @if($product->category)
                         <div>
                             <span class="text-xs font-bold text-[#6B6B6B] uppercase tracking-widest block mb-1 font-['Rajdhani']">Kategori</span>
                             <span class="text-lg font-bold text-[#1A1A1A] uppercase font-['Teko']">{{ $product->category }}</span>
                         </div>
-                        @endif
-                        <div>
-                            <span class="text-xs font-bold text-[#6B6B6B] uppercase tracking-widest block mb-1 font-['Rajdhani']">Bahan</span>
-                            <span class="text-lg font-bold text-[#1A1A1A] uppercase font-['Teko']">Dry-Fit</span>
-                        </div>
-                        <div>
-                            <span class="text-xs font-bold text-[#6B6B6B] uppercase tracking-widest block mb-1 font-['Rajdhani']">Ukuran</span>
-                            <span class="text-lg font-bold text-[#1A1A1A] uppercase font-['Teko']">S – XXL</span>
-                        </div>
                     </div>
+                    @endif
 
                     <div class="flex flex-col sm:flex-row gap-3">
                         @php
-                            $waText = "Halo Armor Sportwear, saya ingin memesan jersey custom dengan referensi model *" . $product->name . "*. Bagaimana prosedur pemesanan dan harganya?";
+                            $waText = "Halo Armor Sportwear, saya ingin memesan jersey custom dengan referensi model *" . $product->name . "*";
                         @endphp
                         <a href="https://wa.me/6285718516143?text={{ urlencode($waText) }}"
                            target="_blank"
                            class="btn-dark flex-1 justify-center gap-3 group">
-                            <svg class="w-5 h-5 group-hover:rotate-12 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                            Pesan via WhatsApp
-                        </a>
-                        <a href="{{ route('preview-jersey') }}" class="btn-outline flex-1 justify-center">
-                            Coba Preview Custom
+                            Pesan Sekarang
                         </a>
                     </div>
                 </div>
@@ -107,5 +100,79 @@
         </div>
 
     </div>
+
+    <!-- Produk Lainnya -->
+    @if(isset($otherProducts) && $otherProducts->count() > 0)
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 mt-16">
+        <h3 class="text-3xl font-bold text-[#1A1A1A] uppercase font-['Teko'] mb-8 border-b border-[#D0D0CC] pb-4">Lihat Produk Lainnya</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            @foreach($otherProducts as $item)
+            <div class="group bg-[#E8E8E4] overflow-hidden hover:bg-[#DEDED8] transition-all duration-300 border border-[#D0D0CC] flex flex-col">
+                <a href="{{ route('katalog.show', $item) }}" class="block aspect-[4/5] relative overflow-hidden bg-[#D8D8D4]">
+                    <img src="{{ $item->image ? asset('storage/' . $item->image) : 'https://images.unsplash.com/photo-1628891435222-06592ce29663?q=80&w=600&auto=format&fit=crop' }}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="{{ $item->name }}">
+                    <div class="absolute inset-0 bg-[#1A1A1A]/0 group-hover:bg-[#1A1A1A]/20 transition-all duration-300 flex items-center justify-center">
+                        <span class="btn-dark opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-sm py-2 px-4">
+                            Lihat
+                        </span>
+                    </div>
+                </a>
+                <div class="p-4 flex flex-col flex-1">
+                    <a href="{{ route('katalog.show', $item) }}">
+                        <h4 class="text-xl font-bold text-[#1A1A1A] uppercase font-['Teko'] group-hover:text-[#6B6B6B] transition-colors leading-tight truncate">{{ $item->name }}</h4>
+                    </a>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+    @endif
 </div>
+
+<!-- Modal untuk Preview Gambar Full -->
+<div id="image-modal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center opacity-0 transition-opacity duration-300 p-4" onclick="closeModal()">
+    <button type="button" class="absolute top-6 right-6 text-white hover:text-gray-300 p-2" onclick="closeModal()">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+    <img id="modal-image" src="" class="max-w-full max-h-[90vh] object-contain shadow-2xl scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+</div>
+
+<script>
+    function openModal(imageSrc) {
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-image');
+        modalImg.src = imageSrc;
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        
+        // Trigger reflow for transition
+        void modal.offsetWidth;
+        
+        modal.classList.remove('opacity-0');
+        modalImg.classList.remove('scale-95');
+        modalImg.classList.add('scale-100');
+        
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-image');
+        
+        modal.classList.add('opacity-0');
+        modalImg.classList.remove('scale-100');
+        modalImg.classList.add('scale-95');
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }, 300);
+    }
+    
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+    });
+</script>
 @endsection
