@@ -23,7 +23,7 @@
         {{-- Pesanan Masuk --}}
         <div class="bg-white border border-[#D0D0CC] p-6">
             <p class="text-[10px] font-bold text-[#9A9A9A] uppercase tracking-widest font-['Rajdhani'] mb-3">Pesanan Masuk</p>
-            <p class="text-5xl font-bold text-[#1A1A1A] font-['Teko'] leading-none">0</p>
+            <p class="text-5xl font-bold text-[#1A1A1A] font-['Teko'] leading-none">{{ $pendingOrders ?? 0 }}</p>
             <div class="mt-4 pt-4 border-t border-[#F2F2F0] flex items-center gap-2">
                 <svg class="w-4 h-4 text-[#9A9A9A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -35,7 +35,7 @@
         {{-- Diproses --}}
         <div class="bg-white border border-[#D0D0CC] p-6">
             <p class="text-[10px] font-bold text-[#9A9A9A] uppercase tracking-widest font-['Rajdhani'] mb-3">Diproses</p>
-            <p class="text-5xl font-bold text-[#1A1A1A] font-['Teko'] leading-none">0</p>
+            <p class="text-5xl font-bold text-[#1A1A1A] font-['Teko'] leading-none">{{ $processingOrders ?? 0 }}</p>
             <div class="mt-4 pt-4 border-t border-[#F2F2F0] flex items-center gap-2">
                 <svg class="w-4 h-4 text-[#9A9A9A]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -47,7 +47,7 @@
         {{-- Selesai --}}
         <div class="bg-[#1A1A1A] border border-[#1A1A1A] p-6">
             <p class="text-[10px] font-bold text-white/40 uppercase tracking-widest font-['Rajdhani'] mb-3">Selesai</p>
-            <p class="text-5xl font-bold text-white font-['Teko'] leading-none">0</p>
+            <p class="text-5xl font-bold text-white font-['Teko'] leading-none">{{ $completedOrders ?? 0 }}</p>
             <div class="mt-4 pt-4 border-t border-white/10 flex items-center gap-2">
                 <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -102,9 +102,9 @@
                     </span>
                 </div>
                 <div class="flex items-center justify-between py-2">
-                    <span class="text-sm font-semibold text-[#9A9A9A] font-['Rajdhani'] uppercase tracking-wider">Manajemen Pesanan</span>
-                    <span class="inline-flex items-center gap-1.5 text-xs px-3 py-1 bg-[#F2F2F0] text-[#9A9A9A] font-bold uppercase tracking-widest font-['Rajdhani']">
-                        <span class="w-1.5 h-1.5 bg-[#C0C0BB] rounded-full"></span> Soon
+                    <span class="text-sm font-semibold text-[#1A1A1A] font-['Rajdhani'] uppercase tracking-wider">Manajemen Pesanan</span>
+                    <span class="inline-flex items-center gap-1.5 text-xs px-3 py-1 bg-[#F2F2F0] text-[#1A1A1A] font-bold uppercase tracking-widest font-['Rajdhani']">
+                        <span class="w-1.5 h-1.5 bg-[#1A1A1A] rounded-full"></span> Aktif
                     </span>
                 </div>
             </div>
