@@ -1,59 +1,114 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Armor Sportwear - E-Commerce Web Application
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+**Tugas Akhir Mata Kuliah Rekayasa Perangkat Lunak (RPL)**
 
-## About Laravel
+Armor Sportwear adalah aplikasi E-Commerce berbasis web yang dirancang sebagai katalog digital untuk menampilkan dan mengelola produk pakaian serta perlengkapan olahraga. Sistem ini dibangun menggunakan *framework* Laravel dengan fokus pada manajemen konten terpusat oleh administrator dan presentasi produk yang interaktif bagi publik.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Anggota Kelompok
+* Muhammad Fitrian Mubarok - 231240001402
+* Genard Arya Djaya - 231240001394
+* Muhammad Yunus - 231240001410
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Fitur dan Fungsionalitas
 
-## Learning Laravel
+Berikut adalah fungsionalitas utama yang telah diimplementasikan pada sistem saat ini:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 1. Antarmuka Publik (Pengunjung)
+- **Halaman Beranda (Home)**: Menampilkan *Hero Image*, galeri portofolio, dan deskripsi utama bisnis.
+- **Katalog Produk**: Menyajikan daftar keseluruhan produk yang tersedia beserta ringkasan informasi.
+- **Detail Produk**: Menampilkan spesifikasi dan deskripsi terperinci dari suatu produk yang dipilih.
+- **Preview Jersey**: Menyediakan fitur visualisasi khusus untuk melihat draf desain atau maket *jersey*.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 2. Antarmuka Administrator (Dashboard)
+Akses ke *dashboard* diamankan melalui sistem autentikasi. Administrator memiliki hak akses untuk fungsi berikut:
+- **Manajemen Produk**: Mengelola data produk melalui fungsi *Create, Read, Update, Delete* (CRUD) serta pengelolaan aset gambar produk terkait.
+- **Manajemen Portofolio**: Mengelola galeri portofolio karya dan pencapaian bisnis.
+- **Manajemen Hero Image**: Mengontrol konten dan aset gambar pada *banner* halaman utama.
+- **Manajemen Pesanan (Order)**: Melakukan pencatatan dan pengelolaan transaksi secara manual, mencakup input rincian pelanggan, item pesanan, total harga, dan pembaruan status pesanan.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Rencana Implementasi Algoritma
 
-### Premium Partners
+Sebagai bagian dari pemenuhan spesifikasi sistem yang membutuhkan algoritma khusus, aplikasi ini direncanakan untuk mengimplementasikan algoritma **Sequential Search** pada fitur penelusuran katalog.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+**Skenario Penerapan:**
+Sebuah kolom pencarian (*search bar*) akan ditambahkan pada antarmuka publik. Saat pengunjung memasukkan kata kunci berupa nama produk, sistem akan menjalankan algoritma *Sequential Search* untuk melakukan iterasi pencarian secara sekuensial pada basis data produk. Algoritma akan mengevaluasi kecocokan setiap data dengan kata kunci yang diberikan sebelum menyajikannya sebagai hasil pencarian.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Dokumentasi dan Artefak Perancangan
 
-## Code of Conduct
+Berikut adalah dokumen dan artefak pemodelan sistem (UML) sebagai kelengkapan tugas Rekayasa Perangkat Lunak:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+1. **Dokumen Analisis Kebutuhan**
+   Dokumen ini memuat deskripsi sistem, identifikasi aktor, serta spesifikasi kebutuhan fungsional dan non-fungsional.
+   - [Dokumen Analisis Kebutuhan (PDF)](docs/analisis_kebutuhan.pdf)
 
-## Security Vulnerabilities
+2. **Unified Modeling Language (UML)**
+   - Use Case Diagram:
+     ![Use Case](docs/uml/use_case.png)
+   - Activity Diagram:
+     ![Activity](docs/uml/activity.png)
+   - Sequence Diagram:
+     ![Sequence](docs/uml/sequence.png)
+   - Class Diagram:
+     ![Class](docs/uml/class.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## Tangkapan Layar Aplikasi (Screenshots)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **Halaman Beranda & Katalog Publik:** 
+  ![Beranda](docs/screenshots/beranda.png)
+- **Halaman Preview Jersey:** 
+  ![Preview](docs/screenshots/preview.png)
+- **Dashboard Admin (Kelola Produk & Pesanan):** 
+  ![Dashboard](docs/screenshots/dashboard.png)
+
+---
+
+## Panduan Instalasi Sistem
+
+Ikuti instruksi berikut untuk menjalankan aplikasi pada lingkungan *development* lokal:
+
+1. **Kloning Repositori**
+   ```bash
+   git clone <url-repositori-anda>
+   cd armor-sportwear
+   ```
+
+2. **Instalasi Dependensi PHP**
+   ```bash
+   composer install
+   ```
+
+3. **Instalasi Dependensi Node.js**
+   ```bash
+   npm install
+   npm run build
+   ```
+
+4. **Konfigurasi Lingkungan (Environment)**
+   Salin berkas konfigurasi *environment* dan sesuaikan kredensial basis data Anda:
+   ```bash
+   cp .env.example .env
+   ```
+
+5. **Pembuatan Kunci Aplikasi (Application Key)**
+   ```bash
+   php artisan key:generate
+   ```
+
+6. **Migrasi Basis Data**
+   ```bash
+   php artisan migrate
+   ```
+
+7. **Menjalankan Server Development**
+   ```bash
+   php artisan serve
+   ```
+   Aplikasi publik dapat diakses melalui `http://localhost:8000`. Panel administrasi dapat diakses melalui rute `/login`.
