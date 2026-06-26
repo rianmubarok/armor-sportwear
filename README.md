@@ -125,8 +125,16 @@ Ikuti instruksi berikut untuk menjalankan aplikasi pada lingkungan _development_
     ```
 
 8. **Menjalankan Server Development**
+    Buka dua terminal terpisah dan jalankan perintah berikut pada masing-masing terminal:
+
+    **Terminal 1 (Backend):**
     ```bash
     php artisan serve
+    ```
+
+    **Terminal 2 (Frontend Assets):**
+    ```bash
+    npm run dev
     ```
     Aplikasi publik dapat diakses melalui `http://localhost:8000`. Panel administrasi dapat diakses melalui rute `/login`.
 
