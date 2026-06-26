@@ -77,12 +77,26 @@ Berikut adalah dokumen dan artefak pemodelan sistem (UML) sebagai kelengkapan tu
 
 ## Panduan Instalasi Sistem
 
-Ikuti instruksi berikut untuk menjalankan aplikasi pada lingkungan _development_ lokal:
+Ikuti instruksi berikut untuk menjalankan aplikasi pada lingkungan _development_ lokal.
+
+> **Catatan:** Aplikasi ini menggunakan **SQLite** sebagai basis data secara _default_, sehingga tidak memerlukan instalasi MySQL atau konfigurasi server basis data eksternal.
+
+### Prasyarat
+
+Pastikan perangkat lunak berikut sudah terinstal sebelum memulai:
+
+-   PHP **>= 8.2**
+-   Composer
+-   Node.js & NPM
+
+---
+
+### Langkah Instalasi
 
 1. **Kloning Repositori**
 
     ```bash
-    git clone https://github.com/rianmubarok/armor-sportwear
+    git clone https://github.com/rianmubarok/armor-sportwear.git
     cd armor-sportwear
     ```
 
@@ -96,14 +110,18 @@ Ikuti instruksi berikut untuk menjalankan aplikasi pada lingkungan _development_
 
     ```bash
     npm install
-    npm run build
     ```
 
 4. **Konfigurasi Lingkungan (Environment)**
-   Salin berkas konfigurasi _environment_ dan sesuaikan kredensial basis data Anda:
+
+    Salin berkas konfigurasi _environment_:
 
     ```bash
+    # Linux / macOS / Git Bash
     cp .env.example .env
+
+    # Windows (Command Prompt)
+    copy .env.example .env
     ```
 
 5. **Pembuatan Kunci Aplikasi (Application Key)**
@@ -112,32 +130,64 @@ Ikuti instruksi berikut untuk menjalankan aplikasi pada lingkungan _development_
     php artisan key:generate
     ```
 
-6. **Migrasi Basis Data dan Seeding**
+6. **Buat Berkas Basis Data SQLite**
+
+    Karena aplikasi menggunakan SQLite, buat berkas basis datanya secara manual:
+
+    ```bash
+    # Linux / macOS / Git Bash
+    touch database/database.sqlite
+
+    # Windows (PowerShell)
+    New-Item -ItemType File database/database.sqlite
+    ```
+
+7. **Migrasi Basis Data dan Seeding**
 
     ```bash
     php artisan migrate --seed
     ```
 
-7. **Tautkan Direktori Penyimpanan (Storage Link)**
+    Perintah ini akan membuat seluruh tabel dan mengisi data awal, termasuk akun administrator _default_.
+
+8. **Tautkan Direktori Penyimpanan (Storage Link)**
 
     ```bash
     php artisan storage:link
     ```
 
-8. **Menjalankan Server Development**
-    Buka dua terminal terpisah dan jalankan perintah berikut pada masing-masing terminal:
+9. **Menjalankan Server Development**
+
+    Gunakan perintah berikut untuk menjalankan _backend_ Laravel dan _frontend_ Vite secara bersamaan dalam **satu terminal**:
+
+    ```bash
+    composer run dev
+    ```
+
+    Atau jalankan secara terpisah di dua terminal berbeda:
 
     **Terminal 1 (Backend):**
     ```bash
     php artisan serve
     ```
 
-    **Terminal 2 (Frontend Assets):**
+    **Terminal 2 (Frontend Assets / Vite):**
     ```bash
     npm run dev
     ```
-    Aplikasi publik dapat diakses melalui `http://localhost:8000`. Panel administrasi dapat diakses melalui rute `/login`.
 
-    **Kredensial Default Administrator:**
-    - Email: `admin@armor.com`
-    - Password: `admin123`
+    Setelah server berjalan, akses aplikasi melalui:
+    -   **Halaman Publik:** `http://localhost:8000`
+    -   **Halaman Login Admin:** `http://localhost:8000/login`
+    -   **Dashboard Admin:** `http://localhost:8000/admin/dashboard`
+
+---
+
+### Kredensial Default Administrator
+
+Setelah menjalankan `migrate --seed`, gunakan kredensial berikut untuk _login_:
+
+| Field    | Value             |
+|----------|-------------------|
+| Email    | `admin@armor.com` |
+| Password | `admin123`        |
